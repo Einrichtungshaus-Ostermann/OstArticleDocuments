@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../engine/Shopware/Components/Plugin/schema/config.xsd">
+    <elements>
+
+        <element type="button">
+            <name>defaultButton</name>
+            <label><![CDATA[<b>Allgemeine Einstellungen</b>]]></label>
+        </element>
+
+        <element type="boolean" scope="shop">
+            <name>shopStatus</name>
+            <label>Shop aktivieren</label>
+            <value>true</value>
+            <description>Soll das Plugin für diesen Shop aktiviert werden?</description>
+        </element>
+
+
+
+        <element type="button">
+            <name>directoryButton</name>
+            <label><![CDATA[<b>Verzeichnisse</b>]]></label>
+        </element>
+
+        <element type="textarea">
+            <name>directoryDocuments</name>
+            <label>Dokumente</label>
+            <value><![CDATA[media/pdf]]></value>
+            <description>...</description>
+        </element>
+
+
+        <element type="textarea">
+            <name>directoryDataSheets</name>
+            <label>Datenblätter</label>
+            <value><![CDATA[media/pdf/datenblatt]]></value>
+            <description>...</description>
+        </element>
+
+        <element type="textarea">
+            <name>directoryAssemblyInstructions</name>
+            <label>Montageanleitungen</label>
+            <value><![CDATA[media/pdf/montageanleitung]]></value>
+            <description>...</description>
+        </element>
+
+
+
+        <element type="button">
+            <name>attributeButton</name>
+            <label><![CDATA[<b>Attribute</b>]]></label>
+        </element>
+
+        <element type="text">
+            <name>attributeDocuments</name>
+            <label>Dokumente</label>
+            <value>attr19</value>
+            <description>In welchem Attribut sollen die IDs der zugeordneten Dokumente gespeichert werden?</description>
+        </element>
+
+
+
+    </elements>
+</config>

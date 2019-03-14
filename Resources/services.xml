@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+
+        <!-- configuration -->
+        <service id="ost_article_documents.configuration" class="OstFoundation\Services\ConfigurationService">
+            <factory service="ost_foundation.services.configuration_service" method="getConfig"/>
+            <argument type="string">OstArticleDocuments</argument>
+        </service>
+
+        <!-- commands -->
+        <service id="ost_article_documents.commands.sync_documents_command" class="OstArticleDocuments\Commands\SyncDocumentsCommand">
+            <tag name="console.command" command="ost-article-documents:sync-documents"/>
+            <argument type="service" id="db"/>
+            <argument type="service" id="models"/>
+            <argument type="service" id="ost_article_documents.configuration"/>
+        </service>
+
+        <service id="ost_article_documents.commands.sync_articles_command" class="OstArticleDocuments\Commands\SyncArticlesCommand">
+            <tag name="console.command" command="ost-article-documents:sync-articles"/>
+            <argument type="service" id="db"/>
+            <argument type="service" id="models"/>
+            <argument type="service" id="ost_article_documents.configuration"/>
+        </service>
+
+        <!-- frontend and widget controller listeners -->
+        <service id="ost_article_documents.listeners.controllers.frontend.pre_dispatch" class="OstArticleDocuments\Listeners\Controllers\Frontend">
+            <argument type="string">%ost_article_documents.view_dir%</argument>
+            <tag name="shopware.event_listener" method="onPreDispatch" event="Enlight_Controller_Action_PreDispatch_Frontend" />
+        </service>
+
+        <service id="ost_article_documents.listeners.controllers.widgets.pre_dispatch" class="OstArticleDocuments\Listeners\Controllers\Widgets">
+            <argument type="string">%ost_article_documents.view_dir%</argument>
+            <tag name="shopware.event_listener" method="onPreDispatch" event="Enlight_Controller_Action_PreDispatch_Widgets" />
+        </service>
+
+        <service id="ost_article_documents.listeners.controllers.frontend.detail.post_dispatch" class="OstArticleDocuments\Listeners\Controllers\Frontend\Detail">
+            <argument type="service" id="ost_article_documents.configuration"/>
+            <argument type="string">%ost_article_documents.view_dir%</argument>
+            <tag name="shopware.event_listener" method="onPostDispatch" event="Enlight_Controller_Action_PostDispatchSecure_Frontend_Detail" />
+        </service>
+
+
+    </services>
+</container>
