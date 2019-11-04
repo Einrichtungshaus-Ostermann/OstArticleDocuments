@@ -10,7 +10,6 @@
 
 // ...
 body.is--ctl-detail.is--act-index {
-
     .ost-article-documents {
         position: absolute;
         bottom: 0;
@@ -31,5 +30,48 @@ body.is--ctl-detail.is--act-index {
             }
         }
     }
+}
 
+// ...
+body.is--ctl-detail.is--act-index {
+    .ost-article-documents--outer {
+        width: 100%;
+        border-top: 10px solid #e7eced;
+        text-align: center;
+        background: #ffffff;
+
+        .document {
+            border: 1px solid #dadae5;
+            text-align: center;
+            display: inline-block;
+            width: 100px;
+            margin: 10px;
+
+            img {
+                margin: auto;
+            }
+        }
+    }
+}
+
+// default  only outer visible
+body.is--ctl-detail.is--act-index {
+    .ost-article-documents {
+        display: none;
+    }
+    .ost-article-documents--outer {
+        display: block;
+    }
+}
+
+// switch at higher resolution
+@media screen and(min-width: @tabletViewportWidth) {
+    body.is--ctl-detail.is--act-index {
+        .ost-article-documents {
+            display: block;
+        }
+        .ost-article-documents--outer {
+            display: none;
+        }
+    }
 }
