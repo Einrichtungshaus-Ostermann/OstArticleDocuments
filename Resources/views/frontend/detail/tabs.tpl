@@ -12,8 +12,9 @@
 
     {* do we have a document? *}
     {if count($ostArticleDocuments[1]) > 0}
-        {* append the title *}
+        {*
         <a href="#" class="tab--link" title="PDF" data-tabName="pdf">PDF</a>
+        *}
     {/if}
 
 {/block}
@@ -29,6 +30,7 @@
     {* do we have a document? *}
     {if count($ostArticleDocuments[1]) > 0}
         {* tab container for shipping details *}
+        {*
         <div class="tab--container">
             <div class="tab--header">
                 <a href="#" class="tab--title" title="PDF">PDF</a>
@@ -40,6 +42,7 @@
                 {include file="frontend/detail/tabs/pdf.tpl" pdf=$ostArticleDocuments[1][0]}
             </div>
         </div>
+        *}
     {/if}
 
 {/block}

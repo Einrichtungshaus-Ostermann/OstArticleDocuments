@@ -12,6 +12,9 @@
  * 1.0.1
  * - fixed lower viewports
  *
+ * 1.0.2
+ * - remove pdf tab
+ *
  * @package   OstArticleDocuments
  *
  * @author    Eike Brandt-Warneke <e.brandt-warneke@ostermann.de>
